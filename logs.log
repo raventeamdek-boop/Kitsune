@@ -5415,3 +5415,204 @@ Traceback (most recent call last):
   File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\utils\mixins.py", line 49, in set_current
     raise TypeError(f'Value should be instance of {cls.__name__!r} not {type(value).__name__!r}')
 TypeError: Value should be instance of 'User' not 'NoneType'
+04/09/2026 10:02:36 AM : executor.py line - 351 : _welcome : aiogram : INFO : Bot: Kitsune Shop [@egefergre_bot]
+04/09/2026 10:02:37 AM : notify_admins.py line - 14 : on_startup_notify : root : ERROR : Chat not found
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\Desktop\cartel_auto\utils\notify_admins.py", line 11, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\bot.py", line 318, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\base.py", line 208, in request
+    return await api.make_request(self.session, self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  proxy=self.proxy, proxy_auth=self.proxy_auth, timeout=self.timeout, **kwargs)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 140, in make_request
+    return check_result(method, response.content_type, response.status, await response.text())
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 115, in check_result
+    exceptions.BadRequest.detect(description)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\utils\exceptions.py", line 140, in detect
+    raise err(cls.text or description)
+aiogram.utils.exceptions.ChatNotFound: Chat not found
+04/09/2026 10:02:37 AM : dispatcher.py line - 351 : start_polling : aiogram.dispatcher.dispatcher : INFO : Start polling.
+04/09/2026 10:02:38 AM : dispatcher.py line - 421 : stop_polling : aiogram.dispatcher.dispatcher : INFO : Stop polling...
+04/09/2026 10:02:38 AM : error_handler.py line - 56 : errors_handler : root : ERROR : TelegramAPIError: Aiohttp client throws an error: ServerDisconnectedError: Server disconnected 
+Update: {"update_id": 657816208, "message": {"message_id": 205, "from": {"id": 5989855758, "is_bot": false, "first_name": "\U0001f968 Мрамор", "username": "marble_soul", "language_code": "ru", "is_premium": true}, "chat": {"id": 5989855758, "first_name": "\U0001f968 Мрамор", "username": "marble_soul", "type": "private"}, "date": 1775703352, "text": "/start", "entities": [{"type": "bot_command", "offset": 0, "length": 6}]}}
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\Desktop\cartel_auto\middlewares\throttling.py", line 30, in on_process_message
+    await dispatcher.throttle(key, rate=limit)
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\utils\deprecated.py", line 122, in wrapped
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\utils\deprecated.py", line 122, in wrapped
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py", line 1251, in throttle
+    raise Throttled(key=key, chat=chat_id, user=user_id, **data)
+aiogram.utils.exceptions.Throttled: Rate limit exceeded! (Limit: 0.1 s, exceeded: 2, time delta: 0.002 s)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py", line 253, in process_update
+    return await self.message_handlers.notify(update.message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\handler.py", line 115, in notify
+    await self.dispatcher.middleware.trigger(f"process_{self.middleware_key}", args + (data,))
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\middlewares.py", line 106, in trigger
+    await handler(*args)
+  File "C:\Users\Кадзицу\Desktop\cartel_auto\middlewares\throttling.py", line 32, in on_process_message
+    await self.message_throttled(message, t)
+  File "C:\Users\Кадзицу\Desktop\cartel_auto\middlewares\throttling.py", line 37, in message_throttled
+    await message.reply("Too many requests!")
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\types\message.py", line 1495, in reply
+    return await self.bot.send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\bot.py", line 318, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\base.py", line 208, in request
+    return await api.make_request(self.session, self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  proxy=self.proxy, proxy_auth=self.proxy_auth, timeout=self.timeout, **kwargs)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ServerDisconnectedError: Server disconnected
+04/09/2026 10:02:38 AM : dispatcher.py line - 378 : start_polling : aiogram.dispatcher.dispatcher : ERROR : Cause exception while getting updates.
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1510, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 779, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 757, in _connect_and_send_request
+    await resp.start(conn)
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client_reqrep.py", line 539, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\streams.py", line 703, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py", line 374, in start_polling
+    updates = await self.bot.get_updates(limit=limit, offset=offset, timeout=timeout)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\bot.py", line 97, in get_updates
+    result = await self.request(api.Methods.GET_UPDATES, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\base.py", line 208, in request
+    return await api.make_request(self.session, self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  proxy=self.proxy, proxy_auth=self.proxy_auth, timeout=self.timeout, **kwargs)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ServerDisconnectedError: Server disconnected
+04/09/2026 10:02:38 AM : error_handler.py line - 56 : errors_handler : root : ERROR : TelegramAPIError: Aiohttp client throws an error: ServerDisconnectedError: Server disconnected 
+Update: {"update_id": 657816207, "message": {"message_id": 204, "from": {"id": 5989855758, "is_bot": false, "first_name": "\U0001f968 Мрамор", "username": "marble_soul", "language_code": "ru", "is_premium": true}, "chat": {"id": 5989855758, "first_name": "\U0001f968 Мрамор", "username": "marble_soul", "type": "private"}, "date": 1775703156, "text": "/start", "entities": [{"type": "bot_command", "offset": 0, "length": 6}]}}
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1510, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 779, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 757, in _connect_and_send_request
+    await resp.start(conn)
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client_reqrep.py", line 539, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\streams.py", line 703, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py", line 253, in process_update
+    return await self.message_handlers.notify(update.message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\Desktop\cartel_auto\handlers\users\start.py", line 36, in bot_start
+    await message.answer_photo(
+    ...<3 lines>...
+    )
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\types\message.py", line 420, in answer_photo
+    return await self.bot.send_photo(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+    )
+    ^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\bot.py", line 486, in send_photo
+    result = await self.request(api.Methods.SEND_PHOTO, payload, files)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\base.py", line 208, in request
+    return await api.make_request(self.session, self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  proxy=self.proxy, proxy_auth=self.proxy_auth, timeout=self.timeout, **kwargs)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ServerDisconnectedError: Server disconnected
+04/09/2026 10:02:38 AM : executor.py line - 318 : start_polling : aiogram : WARNING : Goodbye!
+04/09/2026 10:02:38 AM : executor.py line - 351 : _welcome : aiogram : INFO : Bot: Kitsune Shop [@egefergre_bot]
+04/09/2026 10:02:39 AM : notify_admins.py line - 14 : on_startup_notify : root : ERROR : Aiohttp client throws an error: ServerDisconnectedError: Server disconnected
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 1510, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 779, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client.py", line 757, in _connect_and_send_request
+    await resp.start(conn)
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\client_reqrep.py", line 539, in start
+    message, payload = await protocol.read()  # type: ignore[union-attr]
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiohttp\streams.py", line 703, in read
+    await self._waiter
+aiohttp.client_exceptions.ServerDisconnectedError: Server disconnected
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Кадзицу\Desktop\cartel_auto\utils\notify_admins.py", line 11, in on_startup_notify
+    await dp.bot.send_message(admin, "Бот Запущен")
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\bot.py", line 318, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\base.py", line 208, in request
+    return await api.make_request(self.session, self.server, self.__token, method, data, files,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                  proxy=self.proxy, proxy_auth=self.proxy_auth, timeout=self.timeout, **kwargs)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\bot\api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ServerDisconnectedError: Server disconnected
+04/09/2026 10:02:39 AM : executor.py line - 318 : start_polling : aiogram : WARNING : Goodbye!
+04/09/2026 10:02:39 AM : dispatcher.py line - 393 : start_polling : aiogram.dispatcher.dispatcher : WARNING : Polling is stopped.
+04/09/2026 10:02:39 AM : base_events.py line - 1875 : default_exception_handler : asyncio : ERROR : Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<Dispatcher.start_polling() done, defined at C:\Users\Кадзицу\AppData\Roaming\Python\Python314\site-packages\aiogram\dispatcher\dispatcher.py:331> wait_for=<Future pending cb=[Task.task_wakeup()]>>
