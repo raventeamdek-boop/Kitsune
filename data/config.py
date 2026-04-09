@@ -1,9 +1,20 @@
-from environs import Env
+﻿from environs import Env
 
-# Теперь используем вместо библиотеки python-dotenv библиотеку environs
 env = Env()
 env.read_env()
 
-BOT_TOKEN = env.str("BOT_TOKEN")  # Забираем значение типа str
-ADMINS = env.list("ADMINS")  # Тут у нас будет список из админов
-IP = env.str("ip")  # Тоже str, но для айпи адреса хоста
+
+def normalize_logs_chat(raw_chat_id: str) -> str:
+    value = str(raw_chat_id).strip()
+    if value.startswith("-100"):
+        return value
+    if value.isdigit():
+        return f"-100{value}"
+    return value
+
+
+BOT_TOKEN = env.str("BOT_TOKEN")
+ADMINS = env.list("ADMINS")
+LOGS_CHAT = normalize_logs_chat(env.str("logs_chat", "-1003990572502"))
+IP = env.str("ip", "localhost")
+ADMIN_PANEL_PASSWORD = env.str("admin_password", "Aa12345687!")

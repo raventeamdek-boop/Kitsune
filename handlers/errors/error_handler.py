@@ -8,6 +8,13 @@ from aiogram.utils.exceptions import (Unauthorized, InvalidQueryID, TelegramAPIE
 from loader import dp
 
 
+def safe_update_repr(update):
+    try:
+        return str(update)
+    except Exception:
+        return repr(update)
+
+
 @dp.errors_handler()
 async def errors_handler(update, exception):
     """
@@ -42,17 +49,17 @@ async def errors_handler(update, exception):
         return True
 
     if isinstance(exception, InvalidQueryID):
-        logging.exception(f'InvalidQueryID: {exception} \nUpdate: {update}')
+        logging.exception(f'InvalidQueryID: {exception} \nUpdate: {safe_update_repr(update)}')
         return True
 
     if isinstance(exception, TelegramAPIError):
-        logging.exception(f'TelegramAPIError: {exception} \nUpdate: {update}')
+        logging.exception(f'TelegramAPIError: {exception} \nUpdate: {safe_update_repr(update)}')
         return True
     if isinstance(exception, RetryAfter):
-        logging.exception(f'RetryAfter: {exception} \nUpdate: {update}')
+        logging.exception(f'RetryAfter: {exception} \nUpdate: {safe_update_repr(update)}')
         return True
     if isinstance(exception, CantParseEntities):
-        logging.exception(f'CantParseEntities: {exception} \nUpdate: {update}')
+        logging.exception(f'CantParseEntities: {exception} \nUpdate: {safe_update_repr(update)}')
         return True
     
-    logging.exception(f'Update: {update} \n{exception}')
+    logging.exception(f'Update: {safe_update_repr(update)} \n{exception}')
