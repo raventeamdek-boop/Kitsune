@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from aiogram import executor
 import asyncio
 import sys
