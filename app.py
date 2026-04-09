@@ -52,4 +52,3 @@ if __name__ == '__main__':
     create_db()
     admins_setting_info()
     executor.start_polling(dp, on_startup=on_startup)
->>>>>>> 4a92891bf11d83a0a39d01b4d6932b7d7751ea52
