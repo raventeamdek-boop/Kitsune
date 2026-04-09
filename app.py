@@ -24,7 +24,6 @@ if __name__ == '__main__':
     create_db()
     admins_setting_info()
     executor.start_polling(dp, on_startup=on_startup)
-=======
 from aiogram import executor
 import asyncio
 import sys
